@@ -1,0 +1,6 @@
+web:
+  build: .
+  volumes:
+    - "./app:/usr/src/app/"
+  ports:
+    - "3030:8080"
