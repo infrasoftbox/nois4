@@ -129,3 +129,36 @@ h3{
   height: 150px;
   margin-top: 10px;
 }
+#content > div.flex-container > div > div.mdl-card__title > h2{
+  border-bottom-width: 0px;
+}
+#content > div.flex-container > div:nth-child(1) > div > div.mdl-card__title > h2{
+  border-bottom-width: 0px;
+}
+#content > div.flex-container > div:nth-child(2) > div > div.mdl-card__title > h2{
+  border-bottom-width: 0px;
+}
+#content > div.flex-container > div:nth-child(3) > div > div.mdl-card__title > h2{
+  border-bottom-width: 0px;
+}
+#servidor{
+  display: none;
+}
+#seed{
+  display: none;
+}
+#banco{
+  display: none;
+}
+#tecnologia{
+  display: none;
+}
+#main > p{
+  display: none;
+}
+#inicio{
+  display: none;
+}
+#content > p:nth-child(7){
+    margin-bottom: 0px;
+}
