@@ -11,22 +11,22 @@
   <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__actions mdl-card--border img-postgresql">
     </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Seed";' style='cursor:pointer;'>PostgreSQL</h2>
+    <div class="mdl-card__title" onclick='window.location="/wiki/Seed";' style='cursor:pointer;'>
+      <h2 class="mdl-card__title-text">PostgreSQL</h2>
     </div>
   </div>
   <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__actions mdl-card--border img-mysql">
     </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Seed";' style='cursor:pointer;'>MySQL</h2>
+    <div class="mdl-card__title" onclick='window.location="/wiki/Seed";' style='cursor:pointer;'>
+      <h2 class="mdl-card__title-text">MySQL</h2>
     </div>
   </div>
 </div>
 <div class="step-container step-body">
     <ul class="progressbar">
         <li>Tecnologia</li>
-        <li class="active" onclick='window.location="/wiki/Seed";' style='cursor:pointer;'>Banco</li>
+        <li class="active">Banco</li>
         <li>Seed</li>
         <li>Servidor de aplicação</li>
     </ul>

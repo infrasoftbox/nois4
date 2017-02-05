@@ -12,8 +12,8 @@
     <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
       <div class="mdl-card__actions mdl-card--border img-java">
       </div>
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Banco";' style='cursor;pointer;'>Java</h2>
+      <div class="mdl-card__title" onclick='window.location="/wiki/Banco";' style='cursor:pointer;'>
+        <h2 class="mdl-card__title-text">Java</h2>
       </div>
     </div>
   </div>
@@ -21,8 +21,8 @@
     <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
       <div class="mdl-card__actions mdl-card--border img-php">
       </div>
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Banco";' style='cursor;pointer;'>PHP</h2>
+      <div class="mdl-card__title" onclick='window.location="/wiki/Banco";' style='cursor:pointer;'>
+        <h2 class="mdl-card__title-text">PHP</h2>
       </div>
     </div>
   </div>
@@ -30,8 +30,8 @@
     <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
       <div class="mdl-card__actions mdl-card--border img-node">
       </div>
-      <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Banco";' style='cursor;pointer;'>Node</h2>
+      <div class="mdl-card__title" onclick='window.location="/wiki/Banco";' style='cursor:pointer;'>
+        <h2 class="mdl-card__title-text">Node</h2>
       </div>
     </div>
   </div>

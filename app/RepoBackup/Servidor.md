@@ -12,8 +12,8 @@
   <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__actions mdl-card--border img-wildfly">
     </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Gerar";' style='cursor:pointer;'>Wildfly</h2>
+    <div class="mdl-card__title" onclick='window.location="http://localhost:8080/gerarDocker";' style='cursor:pointer;'>
+      <h2 class="mdl-card__title-text">Wildfly</h2>
     </div>
   </div>
 </div>

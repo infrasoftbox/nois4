@@ -11,8 +11,8 @@
   <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__actions mdl-card--border img-vuejava">
     </div>
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Servidor";' style='cursor:pointer;'>VueJS + Java</h2>
+    <div class="mdl-card__title" onclick='window.location="/wiki/Servidor";' style='cursor:pointer;'>
+      <h2 class="mdl-card__title-text">VueJS + Java</h2>
     </div>
   </div>
 </div>
