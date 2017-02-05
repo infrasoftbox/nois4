@@ -1,0 +1,70 @@
+---
+# Configuration sample file for Jingo (YAML)
+application:
+  title: WikiBox
+  repository: '/home/gabrielslomka/Git/Hackaton/nois4/app/Repo'
+  docSubdir: ''
+  remote: 'origin'
+  pushInterval: 30
+  secret: segredinho
+  git: git
+  skipGitCheck: false
+  loggingMode: 1
+  pedanticMarkdown: true
+  gfmBreaks: true
+  staticWhitelist: '/\.png$/i, /\.jpg$/i, /\.gif$/i'
+  proxyPath: ''
+authentication:
+  google:
+    enabled: true
+    clientId: replace me with the real value
+    clientSecret: replace me with the real value
+    redirectURL: ''
+  github:
+    enabled: false
+    clientId: replace me with the real value
+    clientSecret: replace me with the real value
+    redirectURL: ''
+  ldap:
+    enabled: true
+    url: 'ldap://example.org:389'
+    bindDn: ''
+    bindCredentials: ''
+    searchBase: 'ou=people,dc=example,dc=org'
+    searchFilter: '(uid={{username}})'
+    searchAttributes: ''
+  local:
+    enabled: true
+    accounts:
+      - username: 'ademir'
+        passwordHash: 'd1c3b56aed25799af320f14f6f1874a8db013364'
+        email: ''
+features:
+  markitup: false
+  codemirror: true
+server:
+  hostname: localhost
+  port: 6067
+  localOnly: false
+  baseUrl: ''
+  CORS:
+    enabled: false
+    allowedOrigin: '*'
+authorization:
+  anonRead: true
+  validMatches: .+
+  emptyEmailMatches: false
+pages:
+  index: Home
+  title:
+    fromFilename: true
+    fromContent: false
+    asciiOnly: false
+    lowercase: false
+  itemsPerPage: 10
+customizations:
+  sidebar: _sidebar.md
+  footer: _footer.md
+  style: _style.css
+  script: _script.js
+
