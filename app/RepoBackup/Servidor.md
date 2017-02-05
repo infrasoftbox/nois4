@@ -13,7 +13,7 @@
     <div class="mdl-card__actions mdl-card--border img-wildfly">
     </div>
     <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Wildfly</h2>
+      <h2 class="mdl-card__title-text" onclick='window.location="/wiki/Gerar";' style='cursor:pointer;'>Wildfly</h2>
     </div>
   </div>
 </div>
