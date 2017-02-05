@@ -9,7 +9,7 @@ function FileProjeto () {
 
                 var diretorio = stdout.replace(/\n/g, '') + "";
 
-                exec("zip -r " + diretorio + "/docker-" + nomeProjeto + ".zip " + diretorio + "/docker/", function (error, stdout, stderr) { 
+                exec("zip -r docker-" + nomeProjeto + ".zip " + " docker/", function (error, stdout, stderr) { 
                     success({diretorio : diretorio, arquivo : "docker-" + nomeProjeto + ".zip"});
                 });
 

@@ -14,10 +14,10 @@ this.geraSeed = function(req, res, diretorio, nome) {
 
 		console.log("aeeeee ta pronta !!!!");
 
-        res.setHeader('Content-disposition', 'attachment; filename=container.zip');
+        res.setHeader('Content-disposition', 'attachment; filename=' + nome);
         res.setHeader('Content-type', 'application/zip');
         res.download(zip, nome, function(data) {
-        	fs.unlinkSync(zip);
+        	//fs.unlinkSync(zip);
         });;      
 }
 
