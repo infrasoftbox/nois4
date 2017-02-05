@@ -25,15 +25,13 @@ var DockerFile = function (docker) {
         return new Promise((success, error) => {
             
             try {
-                var stream = fs.createWriteStream('/var/opt/nois4/app/docker/DockerFile', {autoClose: true});
+                var stream = fs.createWriteStream('/var/opt/nois4/app/docker/Dockerfile', {autoClose: true});
                 
                 var docker = _this.commands[_this.configDocker.linguagem + '-project'];
                 
                 function buscaRecursiva(ps) {
                     if (_this.configDocker.dependencias[ps] == undefined) {
-
-                        docker += _this.commands['add-aplication-gitingore'];
-                
+               
                         stream.write(docker, function(status) {});
 
                         success({error : false});

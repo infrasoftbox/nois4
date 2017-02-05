@@ -30,6 +30,7 @@
     <input class="mdl-textfield__input" type="text" id="sample7" placeholder="Nome do projeto">
     </div>
 </form>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-  Avançar
+
+<button onclick="window.location='/wiki/Tecnologia/';" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+     Avançar
 </button>
