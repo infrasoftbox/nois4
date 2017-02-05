@@ -5,27 +5,23 @@ var sleep = require('sleep');
 module.exports = function(app){
 
     app.get('/gerarseed', function (req, res) {
-	 //  console.log(req);
-           
+		   //  console.log(req);         
            // chamada ṕra gerar o container
            geraSeed(req, res);
-         
-
 	});
-	
+
 }
 
-function geraSeed(req, res) {
+function geraSeed(req, res, zip) {
 		console.log("vendo se a seed ta pronta...");
 	 	var url = require('url');
         var url_parts = url.parse(req.url, true);
 
         console.log(url_parts.query);
 
-		var zip = '/tmp/container/container.zip';
-		var pronto = '/tmp/container/pronto.txt';
+        var parametros = url_parts.query;
 
-		if(!existe(pronto)) {	
+		if(!existe(zip)) {	
 			sleep.sleep(10);
 			geraSeed(req, res);
 		}
