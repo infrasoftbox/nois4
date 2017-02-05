@@ -5,6 +5,7 @@ var DockerCompose = require('./Services/DockerCompose.js');
 var DockerFile = require('./Services/DockerFile.js');
 var FileProjeto = require('./Services/FileProjeto.js');
 var ExportarZip = require('./Services/wikiservice.js');
+var Git = require('./Services/Git.js');
 
 var path = require('path');
 
@@ -31,11 +32,16 @@ app.get('/gerarDocker', function (req, res) {
     dockerCompose.gerarDockerCompose();
     
     var dockerFile = new DockerFile({'linguagem' : 'java', 'service':'widfly','dependencias' : ['vue', 'widfly']});
+    var configArquivo = {};
     
     dockerFile.gerarDocker().then(() => {
       var fileProjeto = new FileProjeto();
       return fileProjeto.gerarZip('wikibox');
-    }).then((configArquivo) => {
+    }).then((config) => {
+      configArquivo = config;
+      var git = new Git({repositorio : "ssh://git@gitlab.softbox.com.br:1912/matheusferreira/seed-jee-vue-flyway-postgree.git"})
+      return git.baixarRepositorio();
+    }).then(() => {  
       var exporta = new ExportarZip();
       exporta.geraSeed(req, res, configArquivo.diretorio, configArquivo.arquivo);
     });

@@ -23,7 +23,7 @@ this.geraSeed = function(req, res, diretorio, nome) {
 }
 
 
-this.criaRepo = function(response, nomeProjeto, pastaProjeto) {
+this.criaRepo = function(nomeProjeto, pastaProjeto) {
 	exec('sh ../configuration/gitlab/criarepo.sh '+nomeProjeto, function (err, stdout, stderr) {
     if (err) handleError();
 
