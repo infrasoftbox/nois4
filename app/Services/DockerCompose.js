@@ -4,7 +4,7 @@ var DockerCompose = function (docker) {
     this.configDocker = docker;
 
     this.images = {
-        "java" : "\timage: dockerfile/java:oracle-java8",
+        "java" : "\sbuild: .",
         "java-ports" : null,
         "java-volumes" : null,
         "java-container_name" : null,
@@ -29,9 +29,9 @@ var DockerCompose = function (docker) {
         "postgres-environment" : null,
 
         "mysql" : "mysql:\n image: mysql:5.6\n",
-        "mysql-ports" : "\tports: \n\t\t- 3307:3306\n",
-        "mysql-volumes" : "\tvolumes:\n\t\t- ./aplication-service/mysql:/var/lib/mysql\n",
-        "mysql-container_name" : "\tenvironment:\n\t\t MYSQL_USER: 'userDB'\n\t\t MYSQL_PASSWORD: 'passDB'\n\t\t MYSQL_ROOT_PASSWORD: 'passDB'",
+        "mysql-ports" : "\sports: \n\s\s- 3307:3306\n",
+        "mysql-volumes" : "\svolumes:\n\s\s- ./aplication-service/mysql:/var/lib/mysql\n",
+        "mysql-container_name" : "\senvironment:\n\s\s MYSQL_USER: 'userDB'\n\s\s MYSQL_PASSWORD: 'passDB'\n\s\s MYSQL_ROOT_PASSWORD: 'passDB'",
         "mysql-environment" : null,
 
         "mongo" : "mongo:3.2",

@@ -1,5 +1,6 @@
 const fs = require('fs');
 var exec = require('child_process').exec;
+var Promise = require('promise');
 
 var DockerFile = function (docker) {
     this.configDocker = docker;
@@ -8,16 +9,9 @@ var DockerFile = function (docker) {
         "node-project" : "FROM node:boron",
 
         "java-project" : "FROM java:8",
+        "java-script-run" : "",
 
         "create-aplication-service" : "RUN mkdir -p aplication-service",
-
-        "install-widfly" : "RUN curl -SLO http://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.zip",
-        "move-widfly" : "RUN mv wildfly* aplication-service/",
-        "unzip-widfly" : "RUN unzip -o aplication-service/wildfly*",
-
-        "install-jboss" : "RUN curl -SLO http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip",
-        "move-jboss" : "RUN mv jboss* aplication-service/",
-        "unzip-jboss" : "unzip -o aplication-service/jboss*",
 
         // "add-aplication-gitingore" : "echo aplication-service > .gitignore",
 
@@ -26,47 +20,46 @@ var DockerFile = function (docker) {
     
     /***Gera o docker */
     this.gerarDocker = function () {
-        console.log('aqui')
-        try {
-            var stream = fs.createWriteStream('/var/opt/nois4/app/docker/DockerFile', {autoClose: true});
+        var _this = this;
+
+        return new Promise((success, error) => {
             
+            try {
+                var stream = fs.createWriteStream('/var/opt/nois4/app/docker/DockerFile', {autoClose: true});
+                
+                var docker = _this.commands[_this.configDocker.linguagem + '-project'];
+                
+                function buscaRecursiva(ps) {
+                    if (_this.configDocker.dependencias[ps] == undefined) {
 
-            var docker = this.commands[this.configDocker.linguagem];
+                        docker += _this.commands['add-aplication-gitingore'];
+                
+                        stream.write(docker, function(status) {});
 
-            if (this.configDocker.service != undefined) {
-                docker += this.montarServe(this.configDocker.service);
+                        success({error : false});
+
+                        return;
+                    }
+
+                    var tipo = _this.configDocker.dependencias[ps];
+
+                    _this.moveDependencia(tipo).then(() => {
+                        ps++;
+                        buscaRecursiva(ps);
+                    });
+                }
+
+                buscaRecursiva(0);                
+            } catch (err) {
+                error(err);
             }
-            
-            for(var ps in this.configDocker.dependencias) {
-                var tipo = this.configDocker.dependencias[ps];
-                this.moveDependencia(tipo);
-            }
-
-
-            docker += this.commands['add-aplication-gitingore'];
-            
-            stream.write(docker, function(status) {});
-
-            return {error : false}
-        } catch (err) {
-            throw err;
-        }
+        })
+        
          
     }
 
-    this.montarServe = function (service) {
-        if (this.commands['install-' + service] != undefined) {
-            var commands = this.commands['install-' + service] + '\n';
-            commands += this.commands['move-' + service] + '\n';
-            commands += this.commands['move-' + service] + '\n';
-            return commands;
-        }
-
-        return "";
-    }
-
     this.moveDependencia = function (depencia) {
-       
+       return new Promise((success, error) => {
         //Devolve o caminho da aplicação
         exec("pwd", function (error, stdout, stderr) {
 
@@ -74,11 +67,15 @@ var DockerFile = function (docker) {
 
             exec("cp " + diretorio + "/Pacotes/" + depencia + ".zip " + diretorio + "/docker/", function (error, stdout, stderr) { 
                 exec("unzip -o " + diretorio + "/docker/" + depencia + ".zip -d " + diretorio + "/docker/", function (errorz, stdoutz, stderrz) {
-                    exec("rm -rf " + diretorio + "/docker/" + depencia + ".zip", function () {})
+                    exec("rm -rf " + diretorio + "/docker/" + depencia + ".zip", function () {
+                        success();
+                    })
                 })
             })
 
         });
+
+       })
     }
 }
 
