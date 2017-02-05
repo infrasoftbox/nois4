@@ -13,7 +13,7 @@ var Git = function (optionsGit) {
             exec("pwd", function (error, stdout, stderr) {
                 var diretorio = stdout.replace(/\n/g, '') + "";
                 
-                exec('sh ../configuration/gitlab/configurarepo.sh '+_this.optionsGit.repositorio+" " + diretorio + "/docker", function (err, stdout, stderr) {
+                exec('sh ../configuration/gitlab/clonarepo.sh '+_this.optionsGit.repositorio+" " + diretorio + "/docker", function (err, stdout, stderr) {
                     if (err) handleError();
                     success();
                 });

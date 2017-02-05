@@ -22,15 +22,14 @@ this.geraSeed = function(req, res, diretorio, nome) {
         });;      
 }
 
-
-this.criaRepo = function(nomeProjeto, pastaProjeto) {
+this.criaRepo = function(response, nomeProjeto, pastaProjeto) {
 	exec('sh ../configuration/gitlab/criarepo.sh '+nomeProjeto, function (err, stdout, stderr) {
     if (err) handleError();
 
 	    //Print stdout/stderr to console
 	    var resposta = JSON.parse(stdout);
 	    var urlGit = resposta.ssh_url_to_repo;
-
+	    // faz clone e push da seed+dockerfile do projeto no repo
 	    exec('sh ../configuration/gitlab/configurarepo.sh '+urlGit+" "+pastaProjeto, function (err, stdout, stderr) {
 	    	if (err) handleError();
 	    	console.log(stdout);
