@@ -2,40 +2,35 @@ var path = require('path');
 var fs = require('fs');
 var sleep = require('sleep');
 
-module.exports = function(app){
-    app.get('/gerarseed', function (req, res) {
-      geraSeed(req, res);
-	  });
-}
+ExportarZip = function() {
 
-function geraSeed(req, res) {
-		console.log("vendo se a seed ta pronta...");
-	 	var url = require('url');
-        var url_parts = url.parse(req.url, true);
+this.geraSeed = function(req, res, diretorio, nome) {
+  var zip  = diretorio + "/" + nome;
 
-        console.log(url_parts.query);
-
-		var zip = '/tmp/container/container.zip';
-		var pronto = '/tmp/container/pronto.txt';
-
-		if(!existe(pronto)) {	
+		if(!this.existe(zip)) {	
 			sleep.sleep(10);
-			geraSeed(req, res);
+			this.geraSeed(req, res, diretorio, nome);
 		}
-    
-    res.setHeader('Content-disposition', 'attachment; filename=container.zip');
-    res.setHeader('Content-type', 'application/zip');
-    res.download(zip, 'container.zip', function(data) {
-      fs.unlinkSync(zip);
-      fs.unlinkSync(pronto);
-    });;      
+
+		console.log("aeeeee ta pronta !!!!");
+
+        res.setHeader('Content-disposition', 'attachment; filename=container.zip');
+        res.setHeader('Content-type', 'application/zip');
+        res.download(zip, nome, function(data) {
+        	fs.unlinkSync(zip);
+        });;      
 }
 
-function existe(file) {
+this.existe = function(file) {
   try {
     fs.accessSync(file);
     return true;
   } catch (e) {
+    console.log(e);
     return false;
   }
 }
+}
+
+
+module.exports = ExportarZip;

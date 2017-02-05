@@ -10,11 +10,8 @@ function FileProjeto () {
                 var diretorio = stdout.replace(/\n/g, '') + "";
 
                 exec("zip -r " + diretorio + "/docker-" + nomeProjeto + ".zip " + diretorio + "/docker/", function (error, stdout, stderr) { 
-                    success(diretorio + "/docker-" + nomeProjeto + ".zip ");
-                    // exec("unzip -o " + diretorio + "/docker/" + depencia + ".zip -d " + diretorio + "/docker/", function (errorz, stdoutz, stderrz) {
-                    //     exec("rm -rf " + diretorio + "/docker/" + depencia + ".zip", function () {})
-                    // })
-                })
+                    success({diretorio : diretorio, arquivo : "docker-" + nomeProjeto + ".zip"});
+                });
 
             });
         });
