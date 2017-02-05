@@ -4,6 +4,7 @@ const express = require('express');
 var DockerCompose = require('./Services/DockerCompose.js');
 var DockerFile = require('./Services/DockerFile.js');
 var FileProjeto = require('./Services/FileProjeto.js');
+var ExportarZip = require('./Services/wikiservice.js');
 
 var path = require('path');
 
@@ -12,8 +13,6 @@ const PORT = 8080;
 
 // App
 const app = express();
-// Serviços da WIKI
-require('./Services/wikiservice')(app);
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
@@ -35,12 +34,10 @@ app.get('/gerarDocker', function (req, res) {
     dockerFile.gerarDocker().then(() => {
       var fileProjeto = new FileProjeto();
       return fileProjeto.gerarZip('wikibox');
-    }).then((caminho) => {
-
+    }).then((configArquivo) => {
+      var exporta = new ExportarZip();
+      exporta.geraSeed(req, res, configArquivo.diretorio, configArquivo.arquivo);
     });
-
-    
-    // return res.send({error : false});
 
   } catch (err) {
     return res.send({error : err});
