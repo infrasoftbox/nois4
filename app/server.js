@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-  res.send('Hello world\n');
+    var exporta = new ExportarZip();
+    exporta.criaRepo(res, "TesteHackathon", "/home/teste/");
 });
 
 app.get('/gerarDocker', function (req, res) {

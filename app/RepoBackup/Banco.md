@@ -9,14 +9,14 @@
 </div>
 <div class="flex-container">
   <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__actions mdl-card--border">
+    <div class="mdl-card__actions mdl-card--border img-postgresql">
     </div>
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">PostgreSQL</h2>
     </div>
   </div>
   <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__actions mdl-card--border">
+    <div class="mdl-card__actions mdl-card--border img-mysql">
     </div>
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">MySQL</h2>
@@ -25,9 +25,9 @@
 </div>
 <div class="step-container step-body">
     <ul class="progressbar">
-        <li>Linguagem</li>
+        <li>Tecnologia</li>
         <li class="active">Banco</li>
-        <li>CID</li>
+        <li>Seed</li>
         <li>Servidor de aplicação</li>
     </ul>
 </div>
