@@ -8,6 +8,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "phantomjs": "^2.1.7",
+    "vue-cli": "^2.8.1",
+    "yarn": "^0.19.1"
   }
 }
