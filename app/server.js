@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+var path = require('path');
 
 // Constants
 const PORT = 8080;
@@ -13,6 +14,8 @@ require('./Service/wikiservice')(app);
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
   res.send('Hello world\n');
