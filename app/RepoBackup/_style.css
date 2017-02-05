@@ -10,7 +10,7 @@ html, html * {
 }
 .step-container {
   width: 600px;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 .progressbar {
   margin: 0;
@@ -67,7 +67,40 @@ html, html * {
 }
 .demo-card-wide>.mdl-card__title {
   color: #FFFFFF;
-  background: url('') center / cover;
+  /*background: url('http://localhost:8080/mario.png') center / cover;*/
+}
+
+.img-java{
+  background: url('http://localhost:8080/java.png') center / cover;
+  height: 100%;
+}
+.img-php{
+  background: url('http://localhost:8080/php.png') center / cover;
+  height: 100%;
+}
+.img-node{
+  background: url('http://localhost:8080/node.png') center / cover;
+  height: 100%;
+}
+.img-mysql{
+  background: url('http://localhost:8080/mysql.png') center / cover;
+  height: 100%;
+}
+.img-postgresql{
+  background: url('http://localhost:8080/postgresql.png') center / cover;
+  height: 100%;
+}
+.img-vue{
+  background: url('http://localhost:8080/vue.png') center / cover;
+  height: 100%;
+}
+.img-wildfly{
+  background: url('http://localhost:8080/wildfly.png') center / cover;
+  height: 100%;
+}
+.img-vuejava{
+  background: url('http://localhost:8080/vuejava.png') center / cover;
+  height: 100%;
 }
 h3{
   font-family: 'Roboto', sans-serif !important;
@@ -92,7 +125,7 @@ h3{
   justify-content: space-around;
 }
 .flex-item {
-  padding: 10px;
+  /*padding: 10px;*/
   height: 150px;
   margin-top: 10px;
 }

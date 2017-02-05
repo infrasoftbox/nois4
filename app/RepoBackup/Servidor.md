@@ -10,7 +10,7 @@
 </div>
 <div class="flex-container">
   <div class="flex-item demo-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__actions mdl-card--border">
+    <div class="mdl-card__actions mdl-card--border img-wildfly">
     </div>
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">Wildfly</h2>
@@ -19,9 +19,9 @@
 </div>
 <div class="step-container step-body">
     <ul class="progressbar">
-        <li>Linguagem</li>
+        <li>Tecnologia</li>
         <li>Banco</li>
-        <li>CID</li>
+        <li>Seed</li>
         <li class="active">Servidor de aplicação</li>
     </ul>
 </div>
